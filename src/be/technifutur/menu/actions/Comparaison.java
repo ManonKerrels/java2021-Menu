@@ -3,6 +3,7 @@ package be.technifutur.menu.actions;
 import java.util.Scanner;
 
 public class Comparaison implements Runnable{
+	@Override
 
 	public void run(){
 		System.out.println("Ce programme permet de comparer deux nombres encodés par l'utilisateur.");

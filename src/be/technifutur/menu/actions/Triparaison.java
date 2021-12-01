@@ -3,6 +3,7 @@ package be.technifutur.menu.actions;
 import java.util.Scanner;
 
 public class Triparaison implements Runnable{
+	@Override
 
 	public void run() {
 		System.out.println("Ce programme permet de comparer trois nombres entre eux, en voyant notamment lequel est supérieur et lequel est inférieur.");

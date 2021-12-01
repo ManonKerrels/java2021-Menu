@@ -3,6 +3,7 @@ package be.technifutur.menu.actions;
 import java.util.Scanner;
 
 public class Test implements Runnable{
+	@Override
 
 	public void run() {
 		System.out.println("Ce programme permet de résoudre une équation du premier degré (type ax + b)");
