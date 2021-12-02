@@ -18,7 +18,7 @@ public class MenuControler {
     //méthode publique getAction Runnable
     public Runnable getAction(){
         String choixUtil=vue.saisirMenu(model); //récupération du choix de l'utilisateur grâce à la vue
-        int choixUtilEnInt= Integer.parseInt(choixUtil); //transformation du choix en position
+        int choixUtilEnInt= Integer.parseInt(choixUtil)-1; //transformation du choix en position
         Item itemChoisi=model.getItem(choixUtilEnInt); //si position valide, récupération de l'item puis de l'action à partir du model
         if (itemChoisi == null){
             return null;//retourner action ou null
