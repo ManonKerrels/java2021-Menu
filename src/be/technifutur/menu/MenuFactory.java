@@ -21,4 +21,16 @@ public class MenuFactory {
         toto.setAction(action); //assignation d'un Runnable (action) pour "toto"
         return toto; //renvoi du résultat au Main
     }
+
+    //2 méthodes
+    public MenuControler getMenu(){
+        MenuControler menuControler= new MenuControler(); //création d'un objet
+        MenuModel menuModel= new MenuModel();
+        MenuVue menuVue= new MenuVue();
+    }
+
+    private MenuModel menu(){
+        
+    }
+
 }
