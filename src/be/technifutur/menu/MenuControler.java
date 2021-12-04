@@ -21,7 +21,8 @@ public class MenuControler {
         int choixUtilEnInt= Integer.parseInt(choixUtil)-1; //transformation du choix en position
         Item itemChoisi=model.getItem(choixUtilEnInt); //si position valide, récupération de l'item puis de l'action à partir du model
         if (itemChoisi == null){
-            return null;//retourner action ou null
+            return null;
+            System.out.prinln("Cette action n'est pas possible. Veuillez choisir un nombre proposé précédemment"); //retourner action ou null
         } else {
             return itemChoisi.getAction();
         }

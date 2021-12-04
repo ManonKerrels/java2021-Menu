@@ -23,14 +23,20 @@ public class MenuFactory {
     }
 
     //2 méthodes
-    public MenuControler getMenu(){
-        MenuControler menuControler= new MenuControler(); //création d'un objet
-        MenuModel menuModel= new MenuModel();
-        MenuVue menuVue= new MenuVue();
+    public MenuControler getMenu(){ //Méthode publique getMenu de type MenuControler
+        MenuControler menuControler= new MenuControler(); //création d'un objet de type MenuControler
+        MenuModel menuModel= new MenuModel(); //idem objet de type MenuModel
+        MenuVue menuVue= new MenuVue(); //idem objet de type MenuVue
     }
 
-    private MenuModel menu(){
-        
+    private MenuModel menu(){ //Méthode privée menu de type MenuModel
+        addItem(MenuFactory MenuFactory); //Le code ajoute dans le menu les items en appelant les autres méthodes de la factory (méthode addItem)
+          //initialisation du controler grâce à ces 2 setters
+        return controler();  //retourner le controler
+    }
+
+    private Item initMenu(MenuModel menuModel){  //initialisation du model grâce à la méthode initMenu
+        return menuModel();
     }
 
 }
