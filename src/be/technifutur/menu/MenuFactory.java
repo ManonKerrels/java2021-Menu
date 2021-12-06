@@ -23,10 +23,10 @@ public class MenuFactory {
     }
 
     //2 méthodes
-    public MenuControler getMenu(){
-        MenuControler menuControler= new MenuControler(); //création d'un objet
-        MenuModel menuModel= new MenuModel();
-        MenuVue menuVue= new MenuVue();
+    public MenuControler getMenu(){ //Méthode publique getMenu de type MenuControler
+        MenuControler menuControler= new MenuControler(); //création d'un objet de type MenuControler
+        MenuModel menuModel= new MenuModel(); //idem objet de type MenuModel
+        MenuVue menuVue= new MenuVue(); //idem objet de type MenuVue
     }
 
     private MenuModel menu(){
