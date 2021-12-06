@@ -30,7 +30,7 @@ public class MenuFactory {
     }
 
     private MenuModel menu(){
-        
+
     }
 
 }
