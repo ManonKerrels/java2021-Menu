@@ -1,5 +1,6 @@
 package be.technifutur.menu;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class MenuControler implements MenuNode{
@@ -19,16 +20,32 @@ public class MenuControler implements MenuNode{
 
     //méthode publique getAction Runnable
     @Override
-    public Runnable getAction(){
+    public Runnable getAction() {
+        Runnable result = null;
+        boolean saisieok = false;
+        vue.setError(null);
+        int choix=0;
 
-        String choixUtil=vue.saisirMenu(model); //récupération du choix de l'utilisateur grâce à la vue
-        int choixUtilEnInt= Integer.parseInt(choixUtil)-1; //transformation du choix en position
-        MenuNode nodeChoisi=model.getMenuNode(choixUtilEnInt); //si position valide, récupération de l'item puis de l'action à partir du model
-        if (nodeChoisi == null){
-            return null;
-        } else {
-            return nodeChoisi.getAction();
-        }
+        do {
+            String input = vue.saisirMenu(model);
+            try {
+                choix = Integer.parseInt(input) - 1; //transformation du choix en position
+                MenuNode nodeChoisi = model.getMenuNode(choix); //si position valide, récupération de l'item puis de l'action à partir du model
+
+                if (choix >= 0 && choix < model.getSize()) {
+                    saisieok = true;
+                    MenuNode menuNode = model.getMenuNode(choix);
+                    result = menuNode.getAction();
+                } else{
+                    vue.setError("Il n'existe pas d'option "+(choix+1));
+                }
+            } catch (NumberFormatException e) {
+                vue.setError(input +" n'est pas un numérique");
+            }
+
+        } while (saisieok == false);
+        vue.setError(null);
+        return result;
     }
 
     @Override
