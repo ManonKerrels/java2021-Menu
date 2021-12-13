@@ -1,5 +1,7 @@
 package be.technifutur.menu;
 
+import java.util.Scanner;
+
 public class MenuControler {
 
     //attributs privés
@@ -17,16 +19,20 @@ public class MenuControler {
 
     //méthode publique getAction Runnable
     public Runnable getAction(){
+
         String choixUtil=vue.saisirMenu(model); //récupération du choix de l'utilisateur grâce à la vue
         int choixUtilEnInt= Integer.parseInt(choixUtil)-1; //transformation du choix en position
-        Item itemChoisi=model.getItem(choixUtilEnInt); //si position valide, récupération de l'item puis de l'action à partir du model
-        if (itemChoisi == null){
+        MenuNode nodeChoisi=model.getMenuNode(choixUtilEnInt); //si position valide, récupération de l'item puis de l'action à partir du model
+        if (nodeChoisi == null){
             return null;
-            System.out.prinln("Cette action n'est pas possible. Veuillez choisir un nombre proposé précédemment"); //retourner action ou null
         } else {
-            return itemChoisi.getAction();
+            return nodeChoisi.getAction();
         }
     }
+
+    /*public String getName(){
+
+    }*/
 
 
 }

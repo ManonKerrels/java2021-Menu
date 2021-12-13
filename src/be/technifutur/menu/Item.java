@@ -1,6 +1,6 @@
 package be.technifutur.menu;
 
-public class Item { //création de la classe appelée "Item"
+public class Item implements MenuNode{ //création de la classe appelée "Item"
     //attributs
     private String name; //création d'un objet de type String appelé "name"
     private Runnable action; //création d'un objet de type Runnable appelé "action"

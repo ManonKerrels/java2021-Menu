@@ -10,7 +10,7 @@ public class MenuVue {
 
     public String saisirMenu(MenuModel menu){ //méthode publique String qui fait appel au MenuModel,
         for (int i=0; i<menu.getSize(); i++){
-            System.out.println(menu.getItem(i)) ; //affiche les items du menu
+            System.out.println(menu.getMenuNode(i)) ; //affiche les items du menu
         }
         System.out.println("Choix :"); // demande les choix d'utilisateur
         return input.nextLine(); //équivaut à choix=input.nextLine(); + return choix;

@@ -18,7 +18,7 @@ public class Main{
 
 
         MenuFactory factory= new MenuFactory();
-        Item[] tab= new Item[2];
+        MenuNode[] tab= new Item[2];
         tab[0]= factory.getItemHelloWorld();
         tab[1]= factory.getItemComparaison();
 
