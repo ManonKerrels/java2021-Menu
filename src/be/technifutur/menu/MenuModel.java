@@ -6,9 +6,14 @@ public class MenuModel {
 
     //attributs
     private ArrayList<MenuNode> menuNodeList = new ArrayList<>(); //création d'un attribut privé ArrayList
+    private String name;
+
+    public MenuModel(String name){ //constructeur qui oblige à avoir un nom
+        this.name= name;
+    }
 
 
-    //3 méthodes publiques
+    //4 méthodes publiques
     public void addMenuNode (MenuNode MenuNode) { //code qui ajoute le paramètre item à la fin de la liste itemList
         menuNodeList.add(MenuNode);
     }
@@ -26,5 +31,8 @@ public class MenuModel {
             return menuNodeList.size();
     }
 
+    public String getName() {
+        return this.name;
+    }
 }
 

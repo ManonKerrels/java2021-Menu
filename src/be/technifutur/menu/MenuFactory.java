@@ -3,6 +3,8 @@ package be.technifutur.menu;
 //importe documents externes
 import be.technifutur.menu.actions.HelloWorld;
 import be.technifutur.menu.actions.Comparaison;
+import be.technifutur.menu.actions.Test;
+import be.technifutur.menu.actions.Triparaison;
 
 // création d'une classe MenuFactory
 public class MenuFactory {
@@ -15,6 +17,14 @@ public class MenuFactory {
         return createItem("Comparaison", new Comparaison());
     } //idem
 
+    public MenuNode getItemTriparaison(){ //création MenuNode "getMenuNodeComparaison"
+        return createItem("Triparaison", new Triparaison());
+    }
+
+    public MenuNode getItemTest(){ //création MenuNode "getMenuNodeComparaison"
+        return createItem("Équation à une inconue", new Test());
+    }
+
     private Item createItem(String name, Runnable action){ //fonction utilitaire qui regroupe ce qu'il y a de commun aux méthodes. On demande que lavariable soit initialisée en dehors de la parenthèse
         Item toto= new Item(); //création d'un nouvel MenuNode "toto"
         toto.setName(name); //assignation d'un String (name) pour "toto"
@@ -24,16 +34,35 @@ public class MenuFactory {
 
     //2 méthodes
     public MenuControler getMenu(){ //Méthode publique getMenu de type MenuControler
+        return createMenu(getModelPrincipal()); //on renvoie le controler tel quel
+    }
+
+    private MenuControler createMenu(MenuModel menuModel){
         MenuControler menuControler= new MenuControler(); //création d'un objet de type MenuControler
-        MenuModel menuModel= new MenuModel(); //idem objet de type MenuModel
-        MenuVue menuVue= new MenuVue(); //idem objet de type MenuVue
-        initMenu(menuModel); //on ajoute les MenuNodes depuis la fonction initMenu
-
-        //on passe le MenuModel et MenuVue en attributs du MenuController
+        menuControler.setVue(new MenuVue());
         menuControler.setModel(menuModel);
-        menuControler.setVue(menuVue);
+        return menuControler;
+    }
 
-        return menuControler; //on renvoie le controller tel quel
+    public Item getItemQuitter() {
+        return createItem("Quitter", null);
+    }
+
+    private MenuModel getModelPrincipal(){
+        MenuModel menuModel= new MenuModel("Menu principal");
+        menuModel.addMenuNode(getItemHelloWorld());
+        menuModel.addMenuNode(createMenu(getModelExercices()));
+        menuModel.addMenuNode(getItemQuitter());
+        return menuModel;
+    }
+
+    private MenuModel getModelExercices(){
+        MenuModel menuModel= new MenuModel("Exercices");
+        menuModel.addMenuNode(getItemComparaison());
+        menuModel.addMenuNode(getItemTriparaison());
+        menuModel.addMenuNode(getItemTest());
+        menuModel.addMenuNode(getItemQuitter());
+        return menuModel;
     }
 
     private void initMenu(MenuModel menuModel) {

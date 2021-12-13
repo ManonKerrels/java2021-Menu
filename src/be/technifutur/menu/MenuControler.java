@@ -2,7 +2,7 @@ package be.technifutur.menu;
 
 import java.util.Scanner;
 
-public class MenuControler {
+public class MenuControler implements MenuNode{
 
     //attributs privés
     private MenuModel model;
@@ -18,6 +18,7 @@ public class MenuControler {
     }
 
     //méthode publique getAction Runnable
+    @Override
     public Runnable getAction(){
 
         String choixUtil=vue.saisirMenu(model); //récupération du choix de l'utilisateur grâce à la vue
@@ -30,9 +31,10 @@ public class MenuControler {
         }
     }
 
-    /*public String getName(){
-
-    }*/
+    @Override
+    public String getName(){
+        return model.getName();
+    }
 
 
 }
